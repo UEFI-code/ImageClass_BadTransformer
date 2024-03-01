@@ -5,9 +5,9 @@ import RealBadGraphicTransformer
 import RealTrueBadGraphicTransformer
 
 class myCVModel(nn.Module):
-    def __init__(self, arch = 'bad_graph_transformer', debug = False):
+    def __init__(self, arch = 'BadGraphicTransformer', debug = False):
         super().__init__()
-        if arch == 'bad_graph_transformer':
+        if arch == 'BadGraphicTransformer':
             self.encoder = bad_graph_transformer.BadGraphTransformerDown
         elif arch == 'RealBadGraphicTransformer':
             self.encoder = RealBadGraphicTransformer.BadGraphTransformerDown
@@ -37,5 +37,5 @@ class myCVModel(nn.Module):
     
 if __name__ == "__main__":
     x = torch.randn(1, 3, 224, 224)
-    model = myCVModel(arch = 'RealTrueBadGraphicTransformer', debug = True)
+    model = myCVModel(arch = 'BadGraphicTransformer', debug = True)
     print(model(x).shape)
