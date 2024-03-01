@@ -1,1 +1,1 @@
-python main.py --gpu 6 -b 32 /storage/nfs/ImageNet
+CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 python main.py -b 32 /storage/nfs/ImageNet
