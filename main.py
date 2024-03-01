@@ -20,7 +20,7 @@ import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 from torch.utils.data import Subset
 
-import Model.myCVModel as myCVModel
+from Model import myCVModel
 
 parser = argparse.ArgumentParser(description='My BadTransformer for CV Try')
 parser.add_argument('data', metavar='DIR', nargs='?', default='imagenet',
@@ -280,7 +280,6 @@ def main_worker(gpu, ngpus_per_node, args):
                 'optimizer' : optimizer.state_dict(),
                 'scheduler' : scheduler.state_dict()
             }, is_best, filename=args.arch + '.pth')
-
 
 def train(train_loader, model, criterion, optimizer, epoch, args):
     batch_time = AverageMeter('Time', ':6.3f')
