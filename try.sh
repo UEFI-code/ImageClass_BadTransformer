@@ -1,0 +1,1 @@
+python main.py --gpu 6 -b 32 /storage/nfs/ImageNet
