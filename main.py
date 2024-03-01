@@ -20,15 +20,17 @@ import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 from torch.utils.data import Subset
 
-import BadTransformerLLM
+import Model.myCVModel as myCVModel
 
 parser = argparse.ArgumentParser(description='My BadTransformer for CV Try')
 parser.add_argument('data', metavar='DIR', nargs='?', default='imagenet',
                     help='path to dataset (default: imagenet)')
-parser.add_argument('-a', '--arch', metavar='ARCH', default='BadTransformerLLM',
+parser.add_argument('-a', '--arch', metavar='ARCH', default='BadGraphTransformer',
                     help='model architecture: ' +
-                        ' BadTransformerLLM | ' +
-                        ' (default: BadTransformerLLM)')
+                        ' BadGraphTransformer | ' +
+                        ' RealBadGraphicTransformer | ' +
+                        ' RealTrueBadGraphicTransformer | ' +
+                        ' (default: BadGraphTransformer)')
 parser.add_argument('-j', '--workers', default=8, type=int, metavar='N',
                     help='number of data loading workers (default: 4)')
 parser.add_argument('--epochs', default=90, type=int, metavar='N',
@@ -130,7 +132,7 @@ def main_worker(gpu, ngpus_per_node, args):
                                 world_size=args.world_size, rank=args.rank)
     # create model
 
-    model = BadTransformerLLM.myCVModel()
+    model = myCVModel(arch = args.arch)
 
     if args.pretrained:
         print('Model '.format(model) + 'has no pretrained weights')
