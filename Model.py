@@ -17,9 +17,9 @@ class myCVModel(nn.Module):
             raise ValueError(f'Arch {arch} not supported')
         # Let's play
         self.encoderGroup = nn.Sequential()
-        self.encoderGroup.append(self.encoder(in_channels=3, out_channels=64, kernel_size=3, stride=2, padding=0, activation = nn.ReLU(), deepth = 1, debug=debug))
-        self.encoderGroup.append(self.encoder(in_channels=64, out_channels=64, kernel_size=3, stride=1, padding=0, activation = nn.ReLU(), deepth = 1, debug=debug))
-        self.encoderGroup.append(self.encoder(in_channels=64, out_channels=64, kernel_size=2, stride=2, padding=0, activation = nn.ReLU(), deepth = 1, debug=debug))
+        self.encoderGroup.append(self.encoder(in_channels=3, out_channels=64, kernel_size=3, stride=2, padding=0, normalization=nn.BatchNorm2d(64), activation = nn.ReLU(), deepth = 1, debug=debug))
+        self.encoderGroup.append(self.encoder(in_channels=64, out_channels=64, kernel_size=3, stride=1, padding=0, normalization=nn.BatchNorm2d(64), activation = nn.ReLU(), deepth = 1, debug=debug))
+        self.encoderGroup.append(self.encoder(in_channels=64, out_channels=64, kernel_size=2, stride=2, padding=0, normalization=nn.BatchNorm2d(64), activation = nn.ReLU(), deepth = 1, debug=debug))
 
         self.decoderGroup = nn.Sequential()
         self.decoderGroup.append(nn.Linear(64 * 144, 4096))
