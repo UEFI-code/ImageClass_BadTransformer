@@ -25,9 +25,9 @@ from Model import myCVModel
 parser = argparse.ArgumentParser(description='My BadTransformer for CV Try')
 parser.add_argument('data', metavar='DIR', nargs='?', default='imagenet',
                     help='path to dataset (default: imagenet)')
-parser.add_argument('-a', '--arch', metavar='ARCH', default='BadGraphTransformer',
+parser.add_argument('-a', '--arch', metavar='ARCH', default='BadGraphicTransformer',
                     help='model architecture: ' +
-                        ' BadGraphTransformer | ' +
+                        ' BadGraphicTransformer | ' +
                         ' RealBadGraphicTransformer | ' +
                         ' RealTrueBadGraphicTransformer | ' +
                         ' (default: BadGraphTransformer)')
