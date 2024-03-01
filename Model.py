@@ -27,7 +27,7 @@ class myCVModel(nn.Module):
         self.decoderGroup.append(nn.Linear(4096, 4096))
         self.decoderGroup.append(nn.ReLU())
         self.decoderGroup.append(nn.Linear(4096, 1000))
-        self.decoderGroup.append(nn.Softmax(dim=1))
+        self.decoderGroup.append(nn.ReLU())
     
     def forward(self, x):
         x = self.encoderGroup(x)

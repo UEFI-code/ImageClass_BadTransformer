@@ -171,8 +171,7 @@ def main_worker(gpu, ngpus_per_node, args):
             model = torch.nn.DataParallel(model).cuda()
 
     # define loss function (criterion), optimizer, and learning rate scheduler
-    #criterion = nn.CrossEntropyLoss().cuda(args.gpu)
-    criterion = nn.MSELoss().cuda(args.gpu)
+    criterion = nn.CrossEntropyLoss().cuda(args.gpu)
 
     optimizer = torch.optim.SGD(model.parameters(), args.lr,
                                 momentum=args.momentum,
