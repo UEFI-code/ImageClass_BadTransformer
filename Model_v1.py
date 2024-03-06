@@ -1,3 +1,4 @@
+# ImageNet Loss 2.9113e+00 (3.1455e+00)    Acc@1  35.94 ( 36.55)   Acc@5  63.28 ( 58.55)
 import torch
 import torch.nn as nn
 import bad_graph_transformer
