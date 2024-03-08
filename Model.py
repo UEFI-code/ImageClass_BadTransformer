@@ -22,7 +22,9 @@ class myCVModel(nn.Module):
         self.encoderGroup.append(self.encoder(in_channels=64, out_channels=64, kernel_size=2, stride=2, padding=0, normalization=nn.BatchNorm2d(64), activation = nn.ReLU(), deepth = 1, debug=debug))
 
         self.decoderGroup = nn.Sequential()
-        self.decoderGroup.append(nn.Linear(64 * 144, 1000))
+        self.decoderGroup.append(nn.Linear(64 * 144, 4096))
+        self.decoderGroup.append(nn.ReLU())
+        self.decoderGroup.append(nn.Linear(4096, 1000))
         self.decoderGroup.append(nn.Softmax(dim=1))
 
     
