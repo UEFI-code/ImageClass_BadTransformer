@@ -24,6 +24,10 @@ class myCVModel(nn.Module):
         self.decoderGroup = nn.Sequential()
         self.decoderGroup.append(nn.Linear(64 * 144, 4096))
         self.decoderGroup.append(nn.ReLU())
+        self.decoderGroup.append(nn.Linear(4096, 4096))
+        self.decoderGroup.append(nn.ReLU())
+        self.decoderGroup.append(nn.Linear(4096, 1000))
+        self.decoderGroup.append(nn.ReLU())
     
     def forward(self, x):
         x = self.encoderGroup(x)
